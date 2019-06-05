@@ -10,7 +10,7 @@ duty1 = 50; %duty cycle (max 1 = 100%)
 duty2 = 25; %duty cycle 2
 
 %% SAM Tone:
-t = 0:1/Fs:sec; %samples
+t = 1:1/Fs:sec; %samples
 t = t(:);
 %4kHz Carrier Frequency:
 % = sin(f_carrier*2*pi*t);
@@ -74,7 +74,7 @@ title('10 H complex');
 xlabel('Time (s)')
 
 %% Play stimulus
-player = audioplayer([SAM,SAM],Fs);
+player = audioplayer([s_carrier,s_carrier],Fs);
 player.play();
 
 %% Save Files
