@@ -74,7 +74,7 @@ title('10 H complex');
 xlabel('Time (s)')
 
 %% Play stimulus
-player = audioplayer([SAM,SAM],Fs);
+player = audioplayer([s_mod,s_mod],Fs);
 player.play();
 
 %% Save Files
