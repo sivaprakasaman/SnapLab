@@ -25,7 +25,7 @@ try
     
     
     % Experiment parameters
-    ntrials = 200; % This is per polarity. We typically want about 3-500.
+    ntrials = 500; % This is per polarity. We typically want about 3-500.
     levels = [60]; % Could be a list the way code is written
     isi = 0.5; % Average interstimulus interval (only approx guarenteed)
     
