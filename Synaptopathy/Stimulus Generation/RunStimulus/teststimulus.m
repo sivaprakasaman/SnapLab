@@ -83,18 +83,61 @@ save('sq_25','sq_25');
 save('SAM','SAM');
 
 %% FFT?
-% sig2 = SAM;
-% 
-% fft_sig2 = fft(sig2);
-% 
-% T = 1/Fs;             % Sampling period       
-% L = length(sig2);     % Length of signal
-% t = (0:L-1)*T;        % Time vector
-% 
-% P2 = abs(fft_sig2/L);
-% P1 = P2(1:L/2+1);
-% P1(2:end-1) = 2*P1(2:end-1);
-% 
-% f = Fs*(0:(L/2))/L;
-% figure;
-% plot(f,P1) 
+sig2 = sq_25;
+
+fft_sig2 = fft(sig2);
+
+T = 1/Fs;             % Sampling period       
+L = length(sig2);     % Length of signal
+t = (0:L-1)*T;        % Time vector
+
+P2 = abs(fft_sig2/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+f = Fs*(0:(L/2))/L;
+figure;
+subplot(311)
+plot(f,P1) 
+ylabel("Amplitude")
+title("Spectrum of SQ_25 signal")
+
+
+sig2 = sq_50;
+
+fft_sig2 = fft(sig2);
+
+T = 1/Fs;             % Sampling period       
+L = length(sig2);     % Length of signal
+t = (0:L-1)*T;        % Time vector
+
+P2 = abs(fft_sig2/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+f = Fs*(0:(L/2))/L;
+subplot(312)
+plot(f,P1) 
+xlabel("Frequency")
+ylabel("Amplitude")
+title("Spectrum of SQ50 signal")
+
+sig2 = SAM;
+
+fft_sig2 = fft(sig2);
+
+T = 1/Fs;             % Sampling period       
+L = length(sig2);     % Length of signal
+t = (0:L-1)*T;        % Time vector
+
+P2 = abs(fft_sig2/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+f = Fs*(0:(L/2))/L;
+subplot(313)
+plot(f,P1) 
+xlabel("Frequency")
+ylabel("Amplitude")
+title("Spectrum of SAM signal")
+

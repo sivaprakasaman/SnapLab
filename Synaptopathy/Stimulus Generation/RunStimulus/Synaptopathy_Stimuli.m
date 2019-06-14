@@ -110,7 +110,7 @@ try
                 stimTrigger = L + (p-1)*numel(levels);
                 
                 
-                jit = jitlist(j, L, 1);
+                jit = jitlist(j, L, p);
                 
                 stimlength = numel(y); % Recalculate, just in case
                 
