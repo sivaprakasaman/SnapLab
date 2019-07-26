@@ -11,6 +11,7 @@ from mne import concatenate_raws
 from matlab2python import numel
 import numpy as np
 
+
 def EEGconcatenateFolder(folder,nchans, refchans, fs_new=[], exclude=[]):
     #concatenates all the EEG files in one folder
     #Assumes files are in format output from biosemi ... subj.bdf, subj+001.bdf, etc.

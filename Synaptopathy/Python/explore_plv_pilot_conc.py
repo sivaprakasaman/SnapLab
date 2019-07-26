@@ -17,7 +17,7 @@ from os import mkdir
 import os.path as op
 
 
-dir_dict= {'dataIn':'\\Users\\racqu\\Documents\\Research\\Purdue\\HumanData\\AS\\SAM\\', \
+dir_dict= {'dataIn':'\\Users\\racqu\\Documents\\Research\\Purdue\\HumanData\\AS\\SQ25\\', \
            'figOut':'\\Users\\racqu\\Documents\\Research\\Purdue\\HumanData\\Figs\\'} # define directories # define directories
 read_data_params= {'nchans': 34, 'refchans':['EXG1','EXG2'], 'exclude': ['EXG3','EXG4','EXG5','EXG6','EXG7','EXG8']}
 
@@ -36,7 +36,7 @@ raw, eves= EEGconcatenateFolder(dir_dict['dataIn'], nchans=read_data_params['nch
 #    raw.load_data()
 #    eves= mne.find_events(raw, shortest_event=1, mask=255)
 #    raw.filter(70, 1e3, phase='zero') # Not needed here as mtspec/mtplv have filter params
-epochs= mne.Epochs(raw, eves, 1, tmin=-0.1, proj=False, tmax=1.2, baseline=(-0.1, 0.0), reject=dict(eeg=200e-6))
+epochs= mne.Epochs(raw, eves, 1, tmin=-0.1, proj=False, tmax=1.2, baseline=(-0.1, 0.0), picks = 31, reject=dict(eeg=200e-6))
 evoked= epochs.average()
 params= dict(Fs=raw.info['sfreq'], tapers=[1, 1], fpass = [70, 1000], itc=0)
 x = epochs.get_data()
